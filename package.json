@@ -1,6 +1,6 @@
 {
-    "name": "tuenti-fisheye",
-    "displayName": "tuenti-fisheye",
+    "name": "vscode-fisheye",
+    "displayName": "Fisheye extension",
     "description": "Extension to check your reviews in fisheye",
     "version": "1.0.0",
     "publisher": "sfernandez",
