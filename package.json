@@ -1,0 +1,92 @@
+{
+    "name": "tuenti-fisheye",
+    "displayName": "tuenti-fisheye",
+    "description": "Extension to check your reviews in fisheye",
+    "version": "1.0.0",
+    "publisher": "sfernandez",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onView:fisheye"
+    ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Fisheye configuration",
+            "properties": {
+                "fisheye.settings": {
+                    "type": "object",
+                    "default": {
+                        "username": "",
+                        "password": "",
+                        "baseApi": ""
+                    },
+                    "properties": {
+                        "username": {
+                            "type": "string",
+                            "description": "Username for fisheye authentication."
+                        },
+                        "password": {
+                            "type": "string",
+                            "description": "PAssword for fisheye authentication."
+                        },
+                        "baseApi": {
+                            "type": "string",
+                            "description": "Base api path of fisheye."
+                        },
+                        "baseReviewPath:": {
+                            "type": "string",
+                            "description": "Base path of fisheye to open reviews in browser."
+                        }
+                    }
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "fisheye.refresh",
+                "title": "Refresh Reviews",
+                "icon": {
+                    "light": "resources/light/refresh.svg",
+                    "dark": "resources/dark/refresh.svg"
+                }
+            }
+        ],
+        "views": {
+            "explorer": [
+                {
+                    "id": "fisheye",
+                    "name": "Fisheye"
+                }
+            ]
+        },
+        "menus": {
+            "view/title": [
+                {
+                    "command": "fisheye.refresh",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "main": "./extension",
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "request": "^2.83.0"
+    }
+}
